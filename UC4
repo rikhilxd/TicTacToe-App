@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+// Function to convert slot number to row and column
+void convertToIndex(int slot, int &row, int &col) {
+    // Convert 1–9 to 0–8
+    int index = slot - 1;
+
+    // Calculate row and column
+    row = index / 3;
+    col = index % 3;
+}
+
+int main() {
+    int slot;
+    cout << "Enter slot number (1-9): ";
+    cin >> slot;
+
+    int row, col;
+    convertToIndex(slot, row, col);
+
+    cout << "Row: " << row << ", Column: " << col << endl;
+
+    return 0;
+}
