@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>  // for rand() and srand()
+#include <ctime>    // for time()
+using namespace std;
+
+int main() {
+    // Seed random number generator
+    srand(time(0));
+
+    // Variables for game state
+    char userSymbol, computerSymbol;
+    string currentPlayer;
+
+    // Toss: 0 = User, 1 = Computer
+    int toss = rand() % 2;
+
+    if (toss == 0) {
+        currentPlayer = "User";
+
+        // Assign symbol randomly
+        if (rand() % 2 == 0) {
+            userSymbol = 'X';
+            computerSymbol = 'O';
+        } else {
+            userSymbol = 'O';
+            computerSymbol = 'X';
+        }
+
+    } else {
+        currentPlayer = "Computer";
+
+        // Assign symbol randomly
+        if (rand() % 2 == 0) {
+            computerSymbol = 'X';
+            userSymbol = 'O';
+        } else {
+            computerSymbol = 'O';
+            userSymbol = 'X';
+        }
+    }
+
+    // Display results
+    cout << "Toss Result: " << currentPlayer << " plays first!\n";
+    cout << "User Symbol: " << userSymbol << endl;
+    cout << "Computer Symbol: " << computerSymbol << endl;
+
+    return 0;
+}
