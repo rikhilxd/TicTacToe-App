@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class ValidateMove {
+
+    // Check if the move is valid
+    public static boolean isValidMove(char[][] board, int row, int col) {
+        // Boundary check
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            return false;
+        }
+
+        // Cell must be empty
+        if (board[row][col] != ' ') {
+            return false;
+        }
+
+        return true;
+    }
+
+    // Utility to print board
+    public static void printBoard(char[][] board) {
+        System.out.println("Board:");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(board[i][0] + " | " + board[i][1] + " | " + board[i][2]);
+            if (i < 2) System.out.println("--+---+--");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialize empty board
+        char[][] board = {
+            {' ', ' ', ' '},
+            {' ', ' ', ' '},
+            {' ', ' ', ' '}
+        };
+
+        printBoard(board);
+
+        System.out.print("Enter row (0-2): ");
+        int row = scanner.nextInt();
+
+        System.out.print("Enter column (0-2): ");
+        int col = scanner.nextInt();
+
+        if (isValidMove(board, row, col)) {
+            System.out.println("Move is valid ");
+            board[row][col] = 'X'; // Example move
+        } else {
+            System.out.println("Invalid move ");
+        }
+
+        printBoard(board);
+
+        scanner.close();
+    }
+}
